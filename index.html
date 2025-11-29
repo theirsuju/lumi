@@ -1725,84 +1725,81 @@
 </section>
 
 
-     <section id="log-commands" class="command-section log-card">
-  <div class="log-card-inner">
-    <header class="log-card-header">
-      <div class="log-title">
-        <h3>Logging &amp; Events</h3>
-        <p>Track joins, deletes, edits and moderation actions in dedicated channels.</p>
+    <section id="log-commands" class="command-section">
+  <div class="command-header">
+    <h3>Logging &amp; Events</h3>
+    <p>Configure Lumi's logging system and track server activity in dedicated channels.</p>
+  </div>
+
+  <div class="command-body">
+    <p class="command-intro">
+      Use these commands to enable/disable logs, set log output channels and check status.
+    </p>
+
+    <div class="command-table">
+
+      <div class="command-row">
+        <div class="cmd-name"><code>.log</code></div>
+        <div class="cmd-desc">Show logging help and usage (this menu).</div>
       </div>
-      <div class="log-meta">
-        <span class="badge">Configurable</span>
-        <span class="badge">Embeds</span>
+
+      <div class="command-row">
+        <div class="cmd-name"><code>.log status</code></div>
+        <div class="cmd-desc">Display which log types are enabled and which channels they use.</div>
       </div>
-    </header>
 
-    <div class="log-card-body">
-      <div class="log-columns">
-        <div class="log-col commands">
-          <h4>Main Commands</h4>
+      <div class="command-row">
+        <div class="cmd-name"><code>.log on &lt;type&gt;</code></div>
+        <div class="cmd-desc">Enable a specific log type. Omit &lt;type&gt; to enable all types.</div>
+      </div>
 
-          <div class="cmd">
-            <code class="cmd-name">.log</code>
-            <div class="cmd-desc">Show logging help and usage (this menu).</div>
-          </div>
+      <div class="command-row">
+        <div class="cmd-name"><code>.log off &lt;type&gt;</code></div>
+        <div class="cmd-desc">Disable a specific log type. Omit &lt;type&gt; to disable all types.</div>
+      </div>
 
-          <div class="cmd">
-            <code class="cmd-name">.log status</code>
-            <div class="cmd-desc">Show which log types are ON/OFF and assigned channels.</div>
-          </div>
+      <div class="command-row">
+        <div class="cmd-name"><code>.log setchannel &lt;#channel|id&gt; &lt;type?&gt;</code></div>
+        <div class="cmd-desc">Assign a channel for a log type. Omit type to set a global log channel.</div>
+      </div>
 
-          <div class="cmd">
-            <code class="cmd-name">.log on &lt;type&gt;</code>
-            <div class="cmd-desc">Enable a log type (omit &lt;type&gt; to enable all).</div>
-          </div>
+      <div class="command-row">
+        <div class="cmd-name"><code>.log channel remove &lt;type|all&gt;</code></div>
+        <div class="cmd-desc">Remove a channel mapping for a type or wipe all log channel assignments.</div>
+      </div>
 
-          <div class="cmd">
-            <code class="cmd-name">.log off &lt;type&gt;</code>
-            <div class="cmd-desc">Disable a log type (omit &lt;type&gt; to disable all).</div>
-          </div>
+      <div class="command-row">
+        <div class="cmd-name"><code>.log help</code></div>
+        <div class="cmd-desc">Show examples and quick tips for configuring log channels and permissions.</div>
+      </div>
 
-          <div class="cmd">
-            <code class="cmd-name">.log setchannel &lt;#channel|id&gt; &lt;type?&gt;</code>
-            <div class="cmd-desc">Assign a channel for a type; omit type to set global channel.</div>
-          </div>
+      <hr style="border:0;border-top:1px solid rgba(255,255,255,0.04); margin:12px 0;">
 
-          <div class="cmd">
-            <code class="cmd-name">.log channel remove &lt;type|all&gt;</code>
-            <div class="cmd-desc">Remove channel mapping for a type, or wipe all mappings.</div>
-          </div>
-        </div>
-
-        <div class="log-col types">
-          <h4>Types & Auto-logs</h4>
-
-          <p class="types-list"><code>lumi</code>, <code>member</code>, <code>server</code>, <code>channel</code>, <code>join</code>, <code>leave</code>, <code>emoji</code>, <code>role</code>, <code>message</code>, <code>voice</code></p>
-
-          <h5>Auto-Logged Events</h5>
-          <ul class="auto-logs">
-            <li>Member join / leave / ban / unban / timeout</li>
-            <li>Role create / delete / update</li>
-            <li>Channel create / delete / update</li>
-            <li>Emoji add / remove / rename</li>
-            <li>Message edit / delete / bulk delete (JSON dump)</li>
-            <li>Invite create / delete / uses</li>
-            <li>Voice state changes (join / leave / move)</li>
-            <li>Moderator commands (warn, kick, ban, mute) — logged with executor</li>
-          </ul>
-
-          <div class="note">
-            <strong>Note:</strong> All logs are delivered as embeds. Use <code>.log setchannel</code> to point logs to the correct channel.
-          </div>
+      <div class="command-row">
+        <div class="cmd-name"><code>Available types</code></div>
+        <div class="cmd-desc">
+          <code>lumi</code>, <code>member</code>, <code>server</code>, <code>channel</code>,
+          <code>join</code>, <code>leave</code>, <code>emoji</code>, <code>role</code>,
+          <code>message</code>, <code>voice</code>
         </div>
       </div>
+
+      <div class="command-row">
+        <div class="cmd-name"><code>Auto-logged events</code></div>
+        <div class="cmd-desc">
+          Member join/leave/ban/unban, role updates, channel updates, emoji changes, message edits/deletes,
+          bulk deletes (JSON dump), invite changes, voice joins/leaves/moves and moderation actions.
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <footer class="log-card-footer">
-      <small>Fully configurable • Embeds for readability • Use server admin or bot-manager permissions.</small>
-    </footer>
+  <div class="command-footer">
+    Logs are sent as embeds. Use <code>.log setchannel</code> and ensure the bot has permission to <em>Send Messages</em> and <em>Embed Links</em> in the target channel.
   </div>
 </section>
+
 
 
 
@@ -1854,6 +1851,7 @@
   </script>
 </body>
 </html>
+
 
 
 
